@@ -1,7 +1,186 @@
 @layer tokens, components, utilities;
 
-:root {
-  @layer tokens {
-    
-  }
+@layer tokens {
+	:root {
+		/* START PRIMITIVES */
+		/* ── red ── */
+		--red-50: #e8e1e3;
+		--red-100: #cabcbf;
+		--red-200: #b69aa1;
+		--red-300: #a07881;
+		--red-400: #8c5663;
+		--red-500: #773343;
+		--red-600: #5f2936;
+		--red-700: #471f28;
+		--red-800: #30141b;
+		--red-900: #180a0d;
+
+		/* ── pink ── */
+		--pink-50: #f5e9f0;
+		--pink-100: #e5ccda;
+		--pink-200: #ecbbd6;
+		--pink-300: #f1a8d1;
+		--pink-400: #f897cd;
+		--pink-500: #fe84c8;
+		--pink-600: #cb6aa0;
+		--pink-700: #984f78;
+		--pink-800: #663550;
+		--pink-900: #331a28;
+
+		/* ── orange ── */
+		--orange-50: #f4e6e1;
+		--orange-100: #e3c5bd;
+		--orange-200: #e8ac9c;
+		--orange-300: #eb9379;
+		--orange-400: #f07a58;
+		--orange-500: #f46036;
+		--orange-600: #c34d2b;
+		--orange-700: #923a20;
+		--orange-800: #622616;
+		--orange-900: #31130b;
+
+		/* ── beige ── */
+		--beige-500: #fefcfb;
+		--beige-600: #cbcac9;
+		--beige-700: #989797;
+		--beige-800: #666564;
+		--beige-900: #333232;
+
+		/* ── dark-grey ── */
+		--dark-grey-50: #e0e0e0;
+		--dark-grey-100: #bbbbbb;
+		--dark-grey-200: #979797;
+		--dark-grey-300: #737373;
+		--dark-grey-400: #4f4f4f;
+		--dark-grey-500: #2b2b2b;
+		--dark-grey-600: #222222;
+
+		/* ── spacing ── */
+		--space-2xs: 0.25rem; /* 4px  */
+		--space-xs: 0.5rem; /* 8px  */
+		--space-sm: 1rem; /* 16px */
+		--space-md: 1.5rem; /* 24px */
+		--space-lg: 2rem; /* 32px */
+		--space-xl: 3rem; /* 48px */
+		--space-2xl: 4rem; /* 64px */
+		--space-3xl: 5.5rem; /* 88px */
+		--space-4xl: 6.5rem; /* 104px */
+
+		/* ── typography ── */
+		--font-heading: 'Clash Display Variable', sans-serif;
+		--font-body: 'Space Grotesk', sans-serif;
+
+    --leading-heading: 0.9;
+    --leading-body: 1.6;
+
+		--section-sm: 3rem; /* 48px  */
+		--section-md: 4rem; /* 64px  */
+		--section-lg: 5.5rem; /* 88px  */
+		--section-xl: 8rem; /* 128px */
+		--section-2xl: 16rem; /* 256px */
+
+		--text-body-sm: 0.875rem; /* 14px */
+		--text-body: 1rem; /* 16px */
+		--text-body-lg: 1.125rem; /* 18px */
+
+		--text-h6: 1.5rem; /* 24px — verandert niet */
+		--text-h5: 2rem; /* 32px — verandert niet */
+		--text-h4: clamp(2.5rem, 1.42rem + 2.84vw, 3rem); /* 40px → 48px */
+		--text-h3: clamp(3rem, 1.43rem + 4.26vw, 4rem); /* 48px → 64px */
+		--text-h2: clamp(3.5rem, 0.71rem + 7.09vw, 5.5rem); /* 56px → 88px */
+		--text-h1: clamp(4rem, -0.57rem + 11.35vw, 8rem); /* 64px → 128px */
+		/* END PRIMITIVES */
+
+		/* START SEMANTICS */
+		/* ── primary ── */
+		--primary-50: var(--pink-50);
+		--primary-100: var(--pink-100);
+		--primary-200: var(--pink-200);
+		--primary-300: var(--pink-300);
+		--primary-400: var(--pink-400);
+		--primary-500: var(--pink-500);
+		--primary-600: var(--pink-600);
+		--primary-700: var(--pink-700);
+		--primary-800: var(--pink-800);
+		--primary-900: var(--pink-900);
+
+		/* ── secondary ── */
+		--secondary-50: var(--orange-50);
+		--secondary-100: var(--orange-100);
+		--secondary-200: var(--orange-200);
+		--secondary-300: var(--orange-300);
+		--secondary-400: var(--orange-400);
+		--secondary-500: var(--orange-500);
+		--secondary-600: var(--orange-600);
+		--secondary-700: var(--orange-700);
+		--secondary-800: var(--orange-800);
+		--secondary-900: var(--orange-900);
+
+		/* ── tertiary ── */
+		--tertiary-50: var(--red-50);
+		--tertiary-100: var(--red-100);
+		--tertiary-200: var(--red-200);
+		--tertiary-300: var(--red-300);
+		--tertiary-400: var(--red-400);
+		--tertiary-500: var(--red-500);
+		--tertiary-600: var(--red-600);
+		--tertiary-700: var(--red-700);
+		--tertiary-800: var(--red-800);
+		--tertiary-900: var(--red-900);
+
+		/* ── surface & text ── */
+		--color-surface: var(--beige-500);
+		--color-text-body: var(--dark-grey-300);
+		--color-text-headings: var(--dark-grey-500);
+		--color-border: var(--dark-grey-100);
+
+		/* END SEMANTICS */
+	}
+
+	/* Primitives outside of root */
+	@media (min-width: 1440px) {
+		:root {
+			--section-sm: 4rem; /* 64px  */
+			--section-md: 5.5rem; /* 88px  */
+			--section-lg: 8rem; /* 128px  */
+			--section-xl: 16rem; /* 265px */
+			--section-2xl: 19.5rem; /* 312px */
+		}
+	}
+
+	/* Semantics outside of root */
+	[data-scheme='primary-light'] {
+		--color-surface: var(--primary-50);
+		--color-text-body: var(--primary-800);
+		--color-text-headings: var(--primary-800);
+		--color-border: var(--primary-100);
+	}
+
+	[data-scheme='tertiary-dark'] {
+		--color-surface: var(--tertiary-800);
+		--color-text-body: var(--tertiary-50);
+		--color-text-headings: var(--tertiary-50);
+		--color-border: var(--tertiary-900);
+	}
+}
+
+@layer utilities {
+	/* Container setup */
+	.container {
+		max-width: 1440px;
+		margin-inline: auto;
+		padding-inline: 1.5rem;
+
+		@media (min-width: 768px) {
+			padding-inline: 2.5rem;
+		}
+
+		@media (min-width: 1440px) {
+			padding-inline: 4rem;
+		}
+
+		@media (min-width: 1800px) {
+			padding-inline: 0rem;
+		}
+	}
 }
