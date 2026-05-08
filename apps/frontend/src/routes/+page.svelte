@@ -1,8 +1,11 @@
 <script>
-	import Label from "$lib/components/ui/Label.svelte";
+	import AboutSection from '$lib/components/sections/AboutSection.svelte';
+	import Label from '$lib/components/ui/Label.svelte';
 
 	const { data } = $props();
-	const { projects } = $derived(data);
+	const { homePage, projects } = $derived(data);
+
+  console.log(homePage)
 </script>
 
 <div class="container">
@@ -13,27 +16,20 @@
 		<ul>
 			{#each projects as project (project._id)}
 				<li>{project.title}</li>
-        
-        {#each project.labels as label (label._key)}
-          <Label {...label} />
-        {/each}
+
+				{#each project.labels as label (label._key)}
+					<Label {...label} />
+				{/each}
 			{/each}
 		</ul>
 	{/if}
 
-  <div class="labels section-sm" style="display: flex; flex-wrap: wrap; gap: 8px;">
-    <Label icon="draw" text="where code meets creativity" color="secondary" border={true} />
-    <Label text="webdesign" icon="draw"/>
-    <Label text="development" color="secondary" icon="code_blocks"/>
-    <Label icon="info" text="Label" color="tertiary"/>
-    <Label text="education" border={true}/>
-    <Label text="work" color="secondary" border={true}/>
-  </div>
+	<AboutSection />
 
 	<section class="section-careers section-md" data-scheme="primary-dark">
 		<h1>career</h1>
 		<div>career section</div>
-    <i class="icon-info"></i>
+		<i class="icon-info"></i>
 	</section>
 </div>
 
