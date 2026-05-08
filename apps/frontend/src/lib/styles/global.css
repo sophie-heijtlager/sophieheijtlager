@@ -7,13 +7,13 @@ body {
   color: var(--color-text-body);
   font-size: var(--text-body);
   font-family: var(--font-body);
-  line-height: var(--leading-body);
+  line-height: var(--leading-lg);
 }
 
 h1, h2, h3, h4, h5, h6 {
   color: var(--color-text-headings);
   font-family: var(--font-heading);
-  line-height: var(--leading-heading);
+  line-height: var(--leading-sm);
   text-transform: uppercase;
 }
 

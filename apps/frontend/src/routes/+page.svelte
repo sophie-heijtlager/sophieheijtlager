@@ -1,4 +1,6 @@
 <script>
+	import Label from "$lib/components/ui/Label.svelte";
+
 	const { data } = $props();
 
 	const { projects } = $derived(data);
@@ -15,6 +17,15 @@
 			{/each}
 		</ul>
 	{/if}
+
+  <div class="labels section-sm" style="display: flex; flex-wrap: wrap; gap: 8px;">
+    <Label icon="draw" text="where code meets creativity" color="secondary" border={true} />
+    <Label text="webdesign" icon="draw"/>
+    <Label text="development" color="secondary" icon="code_blocks"/>
+    <Label icon="info" text="Label" color="tertiary"/>
+    <Label text="education" border={true}/>
+    <Label text="work" color="secondary" border={true}/>
+  </div>
 
 	<section class="section-careers section-md" data-scheme="primary-dark">
 		<h1>career</h1>
