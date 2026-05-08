@@ -19,6 +19,7 @@
 	<section class="section-careers section-md" data-scheme="primary-dark">
 		<h1>career</h1>
 		<div>career section</div>
+    <i class="icon-info"></i>
 	</section>
 </div>
 
