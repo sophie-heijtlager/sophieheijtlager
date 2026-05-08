@@ -16,13 +16,15 @@
 		</ul>
 	{/if}
 
-	<section class="section-about-me" data-scheme="primary-light">
-		<h2>about</h2>
-		<div>about me section</div>
-	</section>
-
-	<section class="section-careers" data-scheme="tertiary-dark">
+	<section class="section-careers section-md" data-scheme="primary-dark">
 		<h1>career</h1>
 		<div>career section</div>
 	</section>
 </div>
+
+<section class="section-about-me section-sm" data-scheme="primary-light">
+	<div class="container">
+		<h2>about</h2>
+		<div>about me section</div>
+	</div>
+</section>

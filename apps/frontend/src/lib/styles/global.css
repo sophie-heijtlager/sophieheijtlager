@@ -14,6 +14,7 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--color-text-headings);
   font-family: var(--font-heading);
   line-height: var(--leading-heading);
+  text-transform: uppercase;
 }
 
 section, [data-scheme] {
