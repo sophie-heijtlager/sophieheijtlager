@@ -10,5 +10,11 @@ export const project = {
       title: 'Title',
       type: 'string',
     }),
+    defineField({
+      name: "labels",
+      title: "Labels",
+      type: "array",
+      of: [{ type: 'label' }]
+    })
   ],
 }

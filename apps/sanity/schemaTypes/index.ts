@@ -1,3 +1,10 @@
 import {project} from './documents/project'
+import { label } from './objects/label'
 
-export const schemaTypes = [project]
+export const schemaTypes = [
+  // documents
+  project,
+  
+  // objects
+  label
+]
