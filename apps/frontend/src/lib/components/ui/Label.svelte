@@ -1,13 +1,20 @@
-<script>
-	let { icon = null, border = false, text, color = 'primary' } = $props();
+<script lang="ts">
+  interface LabelProps {
+    text: string, 
+    icon?: string | null,
+    border?: boolean,
+    color?: string
+  }
+
+	let { text, icon = null, border = false, color = 'primary' }: LabelProps = $props();
 </script>
 
-<div aria-label="label: {text}" class="label {color}" class:has-icon={icon} class:has-border={border}>
+<div aria-label="label: {text}" class="label label--{color}" class:has-icon={icon} class:has-border={border}>
 	{#if icon}
 		<i class="icon-{icon}" aria-hidden="true"></i>
 	{/if}
 	{text}
-</div>
+</div>  
 
 <style lang="scss">
 	.label {  
@@ -44,13 +51,13 @@
       border: 0.5px solid var(--label-border-color);
     }
 
-		&.secondary {
+		&.label--secondary {
 			--label-bg: var(--secondary-50);
 			--label-color: var(--secondary-600);
 			--label-border-color: var(--secondary-600);
 		}
 
-		&.tertiary {
+		&.label--tertiary {
 			--label-bg: var(--tertiary-50);
 			--label-color: var(--tertiary-500);
 			--label-border-color: var(--tertiary-500);

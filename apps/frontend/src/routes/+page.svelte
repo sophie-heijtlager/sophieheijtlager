@@ -2,7 +2,6 @@
 	import Label from "$lib/components/ui/Label.svelte";
 
 	const { data } = $props();
-
 	const { projects } = $derived(data);
 </script>
 
@@ -14,6 +13,10 @@
 		<ul>
 			{#each projects as project (project._id)}
 				<li>{project.title}</li>
+        
+        {#each project.labels as label (label._key)}
+          <Label {...label} />
+        {/each}
 			{/each}
 		</ul>
 	{/if}
