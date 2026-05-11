@@ -18,8 +18,7 @@
 						trigger: image,
 						start: 'top center',
 						end: 'bottom top',
-						scrub: 1 + (i * 0.25),
-						markers: true
+						scrub: 1 + (i * 0.25)
 					}
 				});
 			});
@@ -74,7 +73,6 @@
 
 		.section-about__images {
 			display: flex;
-			margin-block-start: 25px;
 
 			& img {
 				width: 100%;
@@ -102,6 +100,7 @@
 			}
 
 			@media (min-width: 992px) {
+				margin-block-start: 25px;
 				flex-direction: column;
 				flex: 1;
 			}
