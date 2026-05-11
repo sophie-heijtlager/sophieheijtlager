@@ -1,14 +1,25 @@
 <script>
+	import { onMount } from 'svelte';
 	import AboutSection from '$lib/components/sections/AboutSection.svelte';
+	import Label from '$lib/components/ui/Label.svelte';
 
 	const { data } = $props();
 	const { homePage, projects } = $derived(data);
 
-  console.log(homePage)
+	import { ScrollSmoother } from '$lib/utils/gsap.js';
+
+	onMount(() => {
+		ScrollSmoother.create({
+		smooth: 1, 
+		effects: true, 
+		smoothTouch: 0.75 
+	});
+	})
+	
 </script>
 
 <div class="container">
-	<h1>Home pagina</h1>
+	<h1 style="height: 1000px">Home pagina</h1>
 
 	{#each homePage.sections as section (section._key)}
 		{#if section._type === 'about' }
@@ -16,9 +27,9 @@
 		{/if}
 	{/each}
 
-	<!-- {#if projects}
+	{#if projects}
 		<h2>Projecten</h2>
-		<ul>
+		<ul style="height: 1200px">
 			{#each projects as project (project._id)}
 				<li>{project.title}</li>
 
@@ -27,7 +38,7 @@
 				{/each}
 			{/each}
 		</ul>
-	{/if} -->
+	{/if}
 
 </div>
 

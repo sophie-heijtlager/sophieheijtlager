@@ -1,7 +1,30 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import Label from '../ui/Label.svelte';
+	import { gsap } from '$lib/utils/gsap';
 
 	const { data } = $props();
+
+	onMount(() => {
+		const images = document.querySelectorAll('.section-about .image');
+		const mm = gsap.matchMedia();
+
+		mm.add('(min-width: 992px)', () => {
+			images.forEach((image, i) => {
+				gsap.to(image, {
+					y: -25 + (i * -25),
+					ease: 'none',
+					scrollTrigger: {
+						trigger: image,
+						start: 'top center',
+						end: 'bottom top',
+						scrub: 1 + (i * 0.25),
+						markers: true
+					}
+				});
+			});
+		});
+	});
 </script>
 
 <section class="section-about section-md" data-scheme="primary-dark">
@@ -51,6 +74,7 @@
 
 		.section-about__images {
 			display: flex;
+			margin-block-start: 25px;
 
 			& img {
 				width: 100%;
@@ -73,7 +97,7 @@
 
 				@media (min-width: 992px) {
 					margin-inline-start: 0;
-					margin-block-start: -9rem;
+					margin-block-start: -5.5rem;
 				}
 			}
 
@@ -98,15 +122,15 @@
 				& .text-heading__labels {
 					display: flex;
 					gap: var(--space-2xs);
-          flex-wrap: wrap;
+					flex-wrap: wrap;
 				}
 			}
 
-      & .text-description {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-md);
-      }
+			& .text-description {
+				display: flex;
+				flex-direction: column;
+				gap: var(--space-md);
+			}
 		}
 
 		@media (min-width: 992px) {
