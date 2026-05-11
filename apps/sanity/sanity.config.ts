@@ -15,5 +15,7 @@ export default defineConfig({
 
   schema: {
     types: schemaTypes,
+    templates: (templates) => 
+      templates.filter(({ schemaType }) => schemaType !== 'homepage')
   },
 })

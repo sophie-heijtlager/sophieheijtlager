@@ -18,10 +18,10 @@ export const aboutSection = {
       initialValue: "About me"
     }),
     defineField({
-      name: 'description',
-      title: "Description",
-      type: "text",
-      initialValue: "description"
+      name: 'descriptions',
+      title: "Descriptions",
+      type: "array",
+      of: [{type: 'text'}]
     }),
     defineField({
       name: 'images',

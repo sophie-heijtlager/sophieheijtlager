@@ -6,7 +6,7 @@ export const projectsQuery = groq`*[_type == "project"]{
   labels
 }`;
 
-export const homePageQuery = groq`*[_type == "homepage"]{
+export const homePageQuery = groq`*[_type == "homepage"][0]{
   _id,
   title,
   sections[]{
@@ -15,14 +15,17 @@ export const homePageQuery = groq`*[_type == "homepage"]{
     _type == 'about' => {
       _id,
       title,
-      description,
+      descriptions[],
       labels[]{
         text,
         color,
         icon,
         border
       },
-      images[]
+      images[] {
+        asset,
+        "imageUrl": asset->url
+      }
     }
   }
 }`;
