@@ -4,6 +4,7 @@
 	import { gsap } from '$lib/utils/gsap';
 
 	const { section } = $props();
+	console.log(section);
 
 	onMount(() => {
 		const images = document.querySelectorAll('.section-about .image');
@@ -31,7 +32,7 @@
 		<div class="section-about__images">
 			{#each section.images as image, index (index)}
 				<div class="image image-{index}">
-					<img src={image.imageUrl} alt="images about me" />
+					<img src={image.imageUrl + '?w=1400&fit=max'} alt="images about me" />
 				</div>
 			{/each}
 		</div>
