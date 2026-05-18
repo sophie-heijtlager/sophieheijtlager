@@ -3,7 +3,7 @@
 	import Label from '../ui/Label.svelte';
 	import { gsap } from '$lib/utils/gsap';
 
-	const { data } = $props();
+	const { section } = $props();
 
 	onMount(() => {
 		const images = document.querySelectorAll('.section-about .image');
@@ -27,9 +27,9 @@
 </script>
 
 <section class="section-about section-md" data-scheme="primary-dark">
-	{#if data.images}
+	{#if section.images}
 		<div class="section-about__images">
-			{#each data.images as image, index (index)}
+			{#each section.images as image, index (index)}
 				<div class="image image-{index}">
 					<img src={image.imageUrl} alt="images about me" />
 				</div>
@@ -39,20 +39,20 @@
 
 	<div class="section-about__text">
 		<div class="text-heading">
-			{#if data.labels}
+			{#if section.labels}
 				<div class="text-heading__labels">
-					{#each data.labels as label, index (index)}
+					{#each section.labels as label, index (index)}
 						<Label {...label} />
 					{/each}
 				</div>
 			{/if}
 
-			<h3>{data.title}</h3>
+			<h3>{section.title}</h3>
 		</div>
 
-		{#if data.descriptions}
+		{#if section.descriptions}
 			<div class="text-description">
-				{#each data.descriptions as description, index (index)}
+				{#each section.descriptions as description, index (index)}
 					<div>{description}</div>
 				{/each}
 			</div>
