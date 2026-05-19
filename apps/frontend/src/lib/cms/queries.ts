@@ -26,6 +26,10 @@ export const homePageQuery = groq`*[_type == "homepage"][0]{
         asset,
         "imageUrl": asset->url
       }
+    },
+    _type == 'textReveal' => {
+      _id,
+      text
     }
   }
 }`;

@@ -31,6 +31,12 @@ h3 {
 
 h4 {
   font-size: var(--text-h4);
+
+  &.alternate {
+    text-transform: none;
+    line-height: var(--leading-md);
+    font-weight: 500;
+  }
 }
 
 h5 {
