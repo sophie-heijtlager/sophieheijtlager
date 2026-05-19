@@ -4,7 +4,6 @@
 	import { gsap } from '$lib/utils/gsap';
 
 	const { section } = $props();
-	console.log(section);
 
 	onMount(() => {
 		const images = document.querySelectorAll('.section-about .image');
