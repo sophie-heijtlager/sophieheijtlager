@@ -5,6 +5,6 @@ export const load = async () => {
   const projects = await serverClient.fetch(projectsQuery);
 
   return {
-    projects
+    projects,
   }
 }
