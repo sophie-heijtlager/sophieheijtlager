@@ -79,6 +79,14 @@
 				object-fit: cover;
 				aspect-ratio: 4/3;
 				border-radius: var(--space-2xs);
+
+				@media (min-width: 1200px) {
+					width: 80%;
+				}
+
+				@media (min-width: 1500px) {
+					width: 100%;
+				}
 			}
 
 			& .image-0 {
