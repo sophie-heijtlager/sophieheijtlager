@@ -2,12 +2,14 @@
 	import type { Component } from "svelte";
 	import AboutSection from "../sections/AboutSection.svelte";
 	import TextRevealSection from "../sections/TextRevealSection.svelte";
+	import TextPopupSection from "../sections/TextPopupSection.svelte";
 
   const { sections = [] } = $props();
 
   const components: Record<string, Component<any>> = {
     about: AboutSection,
-		textReveal: TextRevealSection
+		textReveal: TextRevealSection,
+		textPopup: TextPopupSection
   }
 </script>
 

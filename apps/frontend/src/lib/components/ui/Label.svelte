@@ -23,7 +23,7 @@
 		display: flex;
 		gap: var(--space-xs);
 		align-items: center;
-		width: fit-content;
+		width: max-content;
     
 		text-transform: uppercase;
 		font-family: var(--font-heading);
