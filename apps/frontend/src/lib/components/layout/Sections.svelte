@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { Component } from "svelte";
 	import AboutSection from "../sections/AboutSection.svelte";
+	import MarqueeSection from "../sections/MarqueeSection.svelte";
 	import TextRevealSection from "../sections/TextRevealSection.svelte";
 	import TextPopupSection from "../sections/TextPopupSection.svelte";
 
@@ -8,8 +9,9 @@
 
   const components: Record<string, Component<any>> = {
     about: AboutSection,
+		marquee: MarqueeSection,
 		textReveal: TextRevealSection,
-		textPopup: TextPopupSection
+		textPopup: TextPopupSection,
   }
 </script>
 

@@ -12,13 +12,13 @@
 		mm.add('(min-width: 992px)', () => {
 			images.forEach((image, i) => {
 				gsap.to(image, {
-					y: -25 + (i * -25),
+					y: -25 + i * -25,
 					ease: 'none',
 					scrollTrigger: {
 						trigger: image,
 						start: 'top center',
 						end: 'bottom top',
-						scrub: 1 + (i * 0.25)
+						scrub: 1 + i * 0.25
 					}
 				});
 			});
@@ -26,37 +26,39 @@
 	});
 </script>
 
-<section class="section-about section-md" data-scheme="primary-dark">
-	{#if section.images}
-		<div class="section-about__images">
-			{#each section.images as image, index (index)}
-				<div class="image image-{index}">
-					<img src={image.imageUrl + '?w=1400&fit=max'} alt="images about me" />
-				</div>
-			{/each}
-		</div>
-	{/if}
-
-	<div class="section-about__text">
-		<div class="text-heading">
-			{#if section.labels}
-				<div class="text-heading__labels">
-					{#each section.labels as label, index (index)}
-						<Label {...label} />
-					{/each}
-				</div>
-			{/if}
-
-			<h3>{section.title}</h3>
-		</div>
-
-		{#if section.descriptions}
-			<div class="text-description">
-				{#each section.descriptions as description, index (index)}
-					<div>{description}</div>
+<section class="container">
+	<div class="section-about section-md" data-scheme="primary-dark">
+		{#if section.images}
+			<div class="section-about__images">
+				{#each section.images as image, index (index)}
+					<div class="image image-{index}">
+						<img src={image.imageUrl + '?w=1400&fit=max'} alt="images about me" />
+					</div>
 				{/each}
 			</div>
 		{/if}
+
+		<div class="section-about__text">
+			<div class="text-heading">
+				{#if section.labels}
+					<div class="text-heading__labels">
+						{#each section.labels as label, index (index)}
+							<Label {...label} />
+						{/each}
+					</div>
+				{/if}
+
+				<h3>{section.title}</h3>
+			</div>
+
+			{#if section.descriptions}
+				<div class="text-description">
+					{#each section.descriptions as description, index (index)}
+						<div>{description}</div>
+					{/each}
+				</div>
+			{/if}
+		</div>
 	</div>
 </section>
 

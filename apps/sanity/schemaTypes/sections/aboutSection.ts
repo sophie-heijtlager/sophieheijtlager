@@ -1,9 +1,11 @@
 import { defineField } from "sanity";
+import {UserIcon} from '@sanity/icons'
 
 export const aboutSection = {
   name: "about",
   title: "About",
   type: "document",
+  icon: UserIcon,
   fields: [
     defineField({
       name: 'labels',

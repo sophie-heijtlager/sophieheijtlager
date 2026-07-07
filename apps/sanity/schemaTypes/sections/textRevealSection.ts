@@ -1,9 +1,11 @@
 import { defineField } from "sanity";
+import {EyeOpenIcon} from '@sanity/icons'
 
 export const textRevealSection = {
   name: "textReveal",
   title: "Text Reveal",
   type: "document",
+  icon: EyeOpenIcon,
   fields: [
     defineField({
       name: "text",
