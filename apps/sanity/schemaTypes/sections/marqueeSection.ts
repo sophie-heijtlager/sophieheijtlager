@@ -24,7 +24,12 @@ export const marqueeSection = {
       name: 'items',
       title: 'Items',
       type: 'array',
-      of: [{type: 'marqueeItem'}]
+      of: [
+        {
+          type: 'reference',
+          to: [{type: 'marqueeItem'}]
+        }
+      ]
     })
   ],
 }

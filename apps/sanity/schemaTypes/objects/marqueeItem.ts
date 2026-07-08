@@ -3,7 +3,7 @@ import { defineField } from "sanity";
 export const marqueeItem = {
   name: "marqueeItem",
   title: "Marquee item",
-  type: "object",
+  type: "document",
   fields: [
     defineField({
       name: "title",
