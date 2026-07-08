@@ -9,7 +9,7 @@
 
   const components: Record<string, Component<any>> = {
     about: AboutSection,
-		marquee: MarqueeSection,
+		marqueeSection: MarqueeSection,
 		textReveal: TextRevealSection,
 		textPopup: TextPopupSection,
   }

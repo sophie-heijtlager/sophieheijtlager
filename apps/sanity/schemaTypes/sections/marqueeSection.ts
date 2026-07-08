@@ -2,32 +2,19 @@ import { defineField } from "sanity";
 import {ListIcon} from '@sanity/icons';
 
 export const marqueeSection = {
-  name: "marquee",
+  name: "marqueeSection",
   title: "Marquee",
   type: "document",
   icon: ListIcon,
   fields: [
     defineField({
-      name: "color_scheme",
-      type: "string",
-      title: "Color scheme",
-      options: {
-        layout: "radio",
-        list: [
-          {title: 'Light', value: 'light'},
-          {title: 'Dark', value: 'dark'}
-        ],
-      },
-      initialValue: 'dark'
-    }),
-    defineField({
-      name: 'items',
-      title: 'Items',
+      name: 'marquees',
+      title: 'Marquees',
       type: 'array',
       of: [
         {
           type: 'reference',
-          to: [{type: 'marqueeItem'}]
+          to: [{type: 'marquee'}]
         }
       ]
     })

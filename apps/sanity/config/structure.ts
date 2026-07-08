@@ -10,6 +10,7 @@ export const structure = {
     homePageListItem(S),
     S.divider(),
     projectsListItem(S),
+    marqueesListItem(S)
   ])
 }
 
@@ -19,3 +20,4 @@ const homePageListItem = (S: StructureBuilder) => S.listItem()
     .icon(HomeIcon);
 
 const projectsListItem = (S: StructureBuilder) => S.documentTypeListItem('project')
+const marqueesListItem = (S: StructureBuilder) => S.documentTypeListItem('marquee')

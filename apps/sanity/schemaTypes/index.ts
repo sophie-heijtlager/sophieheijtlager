@@ -1,4 +1,5 @@
 import { project } from './documents/project'
+import { marquee } from './documents/marquee'
 import { label } from './objects/label'
 import { marqueeItem } from './objects/marqueeItem'
 import { homePage } from './pages/homePage'
@@ -11,6 +12,7 @@ export const schemaTypes = [
   // documents
   homePage,
   project,
+  marquee,
   marqueeSection,
   aboutSection,
   textRevealSection,
