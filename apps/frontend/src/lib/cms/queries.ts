@@ -18,7 +18,7 @@ export const projectsQuery = groq`*[_type == "project"]{
         marquees[] -> {
           color_scheme,
           rotation,
-          items[] -> {title, show_info}
+          items[] -> {title, show_info, level}
         }
       },
       _type == 'about' => {

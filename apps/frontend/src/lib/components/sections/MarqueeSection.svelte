@@ -1,73 +1,86 @@
 <script lang="ts">
 	import { gsap } from 'gsap';
 	import { onMount } from 'svelte';
+	import Tooltip from '../ui/Tooltip.svelte';
 
 	const { section } = $props();
 
 	onMount(() => {
-		console.log(section);
+		const sectionMarquee = document.querySelectorAll('.section-marquee');
 
-    const sectionMarquee = document.querySelectorAll('.section-marquee');
+		sectionMarquee.forEach((marquee, index) => {
+			const inners = marquee?.querySelectorAll('.section-marquee__inner');
 
-    sectionMarquee.forEach((marquee, index) => {
-      const inners = marquee?.querySelectorAll('.section-marquee__inner');
+			const marqueeAnimation = gsap.to(inners, {
+				xPercent: index === 0 ? 100 : -100,
+				duration: 70 + index * 60,
+				ease: 'none',
+				repeat: 1
+			});
 
-      console.log(index);
-
-      const marqueeAnimation = gsap.to(inners, {
-        xPercent: -100,
-        duration: 40 + (index * 30) ,
-        ease: 'none',
-        repeat: 1,
-      })
-  
-      marquee?.addEventListener('mouseleave', () => marqueeAnimation.play());
-      marquee?.addEventListener('mouseenter', () => marqueeAnimation.pause());
-    })
-
+			marquee?.addEventListener('mouseleave', () => marqueeAnimation.play());
+			marquee?.addEventListener('mouseenter', () => marqueeAnimation.pause());
+		});
 	});
 </script>
 
 <section class="section-md">
-  {#each section.marquees as marquee, index (index)}
-    <div class="section-marquee {marquee.color_scheme} container" style="--marquee-rotation:{marquee.rotation}deg">
-      <div class="section-marquee__inner">
-        {#each marquee.items as item, index (index)}
-          <div class="section-marquee__inner__item">
-            <h6>{item.title}</h6>
-            {#if item.show_info}
-              <i class="icon-info" aria-hidden="true"></i>
-            {/if}
-          </div>
-        {/each}
-      </div>
+	{#each section.marquees as marquee, index (index)}
+		<div
+			class="section-marquee {marquee.color_scheme} container"
+			style="--marquee-rotation:{marquee.rotation}deg"
+		>
+			<div class="section-marquee__inner">
+				{#each marquee.items as item, index (index)}
+					<div class="section-marquee__inner__item">
+						<h6>{item.title}</h6>
+						{#if item.show_info}
+							<i class="icon-info" aria-hidden="true"></i>
+              <Tooltip props={item.level}``/>
+						{/if}
+					</div>
 
-      <div class="section-marquee__inner">
-        {#each marquee.items as item, index (index)}
-          <div class="section-marquee__inner__item">
-            <h6>{item.title}</h6>
-            {#if item.show_info}
-              <i class="icon-info" aria-hidden="true"></i>
-            {/if}
-          </div>
-        {/each}
-      </div>
-    </div>
-  {/each}
+					{#if marquee.color_scheme === 'light'}
+						<div class="section-marquee__inner__dot"></div>
+					{/if}
+				{/each}
+			</div>
+
+			<div class="section-marquee__inner">
+				{#each marquee.items as item, index (index)} 
+					<div class="section-marquee__inner__item">
+						<h6>{item.title}</h6>
+						{#if item.show_info}
+							<i class="icon-info" aria-hidden="true"></i>
+              <Tooltip props={item.level}/>
+						{/if}
+					</div>
+
+					{#if marquee.color_scheme === 'light'}
+						<div class="section-marquee__inner__dot"></div>
+					{/if}
+				{/each}
+			</div>
+		</div>
+	{/each}
 </section>
 
 <style lang="scss">
 	.section-marquee {
 		padding-block: var(--space-md);
-    display: flex;
+		display: flex;
 		white-space: nowrap;
-    position: relative;
-    transform: rotate(var(--marquee-rotation));
+		position: relative;
+		transform: rotate(var(--marquee-rotation));
 
-    &:is(:last-of-type) {
-      z-index: -1;
-      top: -1rem;
-    }
+		&:first-of-type {
+			justify-content: end;
+			z-index: 2;
+		}
+
+		&:last-of-type {
+			top: -1rem;
+		}
 
 		:global(&::before, &::after) {
 			position: absolute;
@@ -81,12 +94,21 @@
 
 		& .section-marquee__inner {
 			display: flex;
+			align-items: center;
 			justify-content: center;
 
 			& .section-marquee__inner__item {
 				display: flex;
 				gap: var(--space-2xs);
-        padding-inline-end: var(--space-3xl);
+				padding-inline: var(--space-xl);
+        position: relative;
+			}
+
+			& .section-marquee__inner__dot {
+				height: 0.5rem;
+				width: 0.5rem;
+				background-color: var(--primary-500);
+				border-radius: var(--space-2xs);
 			}
 		}
 
