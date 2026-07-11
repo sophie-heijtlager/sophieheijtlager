@@ -21,6 +21,18 @@
 			marquee?.addEventListener('mouseleave', () => marqueeAnimation.play());
 			marquee?.addEventListener('mouseenter', () => marqueeAnimation.pause());
 		});
+
+		const tooltips = document.querySelectorAll('.tooltip');
+
+		if(tooltips) {
+			tooltips.forEach(tooltip => {
+				const infoWrapper = tooltip.closest('.info-wrapper');
+				const infoIcon = infoWrapper?.querySelector('.icon-info');
+	
+				infoIcon?.addEventListener('mouseenter', () => tooltip.classList.add('visible'));
+				infoIcon?.addEventListener('mouseleave', () => tooltip.classList.remove('visible'));
+			})
+		}
 	});
 </script>
 
@@ -35,8 +47,10 @@
 					<div class="section-marquee__inner__item">
 						<h6>{item.title}</h6>
 						{#if item.show_info}
-							<i class="icon-info" aria-hidden="true"></i>
-              <Tooltip props={item.level}``/>
+							<div class="info-wrapper">
+								<i class="icon-info" aria-hidden="true"></i>
+								<Tooltip props={item.level} />
+							</div>
 						{/if}
 					</div>
 
@@ -47,12 +61,14 @@
 			</div>
 
 			<div class="section-marquee__inner">
-				{#each marquee.items as item, index (index)} 
+				{#each marquee.items as item, index (index)}
 					<div class="section-marquee__inner__item">
 						<h6>{item.title}</h6>
 						{#if item.show_info}
-							<i class="icon-info" aria-hidden="true"></i>
-              <Tooltip props={item.level}/>
+							<div class="info-wrapper">
+								<i class="icon-info" aria-hidden="true"></i>
+								<Tooltip props={item.level} />
+							</div>
 						{/if}
 					</div>
 
@@ -65,7 +81,7 @@
 	{/each}
 </section>
 
-<style lang="scss">
+<style lang="scss" scoped>
 	.section-marquee {
 		padding-block: var(--space-md);
 		display: flex;
@@ -101,7 +117,11 @@
 				display: flex;
 				gap: var(--space-2xs);
 				padding-inline: var(--space-xl);
-        position: relative;
+
+				& .info-wrapper {
+					position: relative;
+					display: flex;
+				}
 			}
 
 			& .section-marquee__inner__dot {
