@@ -21,18 +21,6 @@
 			marquee?.addEventListener('mouseleave', () => marqueeAnimation.play());
 			marquee?.addEventListener('mouseenter', () => marqueeAnimation.pause());
 		});
-
-		const tooltips = document.querySelectorAll('.tooltip');
-
-		if(tooltips) {
-			tooltips.forEach(tooltip => {
-				const infoWrapper = tooltip.closest('.info-wrapper');
-				const infoIcon = infoWrapper?.querySelector('.icon-info');
-	
-				infoIcon?.addEventListener('mouseenter', () => tooltip.classList.add('visible'));
-				infoIcon?.addEventListener('mouseleave', () => tooltip.classList.remove('visible'));
-			})
-		}
 	});
 </script>
 
@@ -45,10 +33,13 @@
 			<div class="section-marquee__inner">
 				{#each marquee.items as item, index (index)}
 					<div class="section-marquee__inner__item">
-						<h6>{item.title}</h6>
+						<div class="h6">{item.title}</div>
 						{#if item.show_info}
 							<div class="info-wrapper">
-								<i class="icon-info" aria-hidden="true"></i>
+								<button type="button" class="info-trigger" aria-describedby="tooltip-{index}" aria-label="More info for:{item.title}">
+									<i class="icon-info" aria-hidden="true"></i>
+								</button>
+									
 								<Tooltip props={item.level} />
 							</div>
 						{/if}
@@ -60,13 +51,15 @@
 				{/each}
 			</div>
 
-			<div class="section-marquee__inner">
+			<div class="section-marquee__inner" aria-hidden="true">
 				{#each marquee.items as item, index (index)}
 					<div class="section-marquee__inner__item">
-						<h6>{item.title}</h6>
+						<div class="h6">{item.title}</div>
 						{#if item.show_info}
 							<div class="info-wrapper">
-								<i class="icon-info" aria-hidden="true"></i>
+								<button type="button" class="info-trigger" tabindex="-1"  aria-label="More info for: {item.title}">
+									<i class="icon-info" aria-hidden="true"></i>
+								</button>
 								<Tooltip props={item.level} />
 							</div>
 						{/if}
@@ -120,7 +113,17 @@
 
 				& .info-wrapper {
 					position: relative;
-					display: flex;
+
+					& .info-trigger {
+						color: inherit;
+						display: flex;
+
+						&:hover {
+							:global(~ .tooltip) {
+								opacity: 1;	
+							}
+						}
+					}
 				}
 			}
 
