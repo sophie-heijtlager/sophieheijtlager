@@ -7,12 +7,14 @@ import { aboutSection } from './sections/aboutSection'
 import { marqueeSection } from './sections/marqueeSection'
 import { textRevealSection } from './sections/textRevealSection'
 import { textPopupSection } from './sections/textPopupSection'
+import { myCareerSection } from './sections/myCareerSection'
 
 export const schemaTypes = [
   // documents
   homePage,
   project,
   marquee,
+  myCareerSection,
   marqueeSection,
   aboutSection,
   textRevealSection,

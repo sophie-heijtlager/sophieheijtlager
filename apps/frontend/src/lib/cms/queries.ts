@@ -21,6 +21,11 @@ export const projectsQuery = groq`*[_type == "project"]{
           items[] -> {title, show_info, level}
         }
       },
+      _type == 'myCareer' => {
+        _id,
+        title,
+        paragraph
+      },
       _type == 'about' => {
         _id,
         title,
