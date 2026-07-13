@@ -131,7 +131,7 @@
 		--tertiary-900: var(--red-900);
 
 		/* ── surface & text ── */
-		--color-surface: var(--beige-500);
+		--color-surface: transparent;
 		--color-text-body: var(--dark-grey-300);
 		--color-text-headings: var(--dark-grey-500);
 		--color-border: var(--dark-grey-100);

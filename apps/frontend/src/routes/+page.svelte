@@ -16,16 +16,6 @@
 	
 </script>
 
-<div class="container">
-	<h1 style="height: 1000px">Home pagina</h1>
+<h1 style="height: 400px">Home pagina</h1>
 
-	<Sections sections={data.homePage?.sections ?? []} />
-	<div style="height: 500px"></div>
-</div>
-
-<!-- <section class="section-about-me section-sm" data-scheme="primary-light">
-	<div class="container">
-		<h2>about</h2>
-		<div>about me section</div>
-	</div>
-</section> -->
+<Sections sections={data.homePage?.sections ?? []} />

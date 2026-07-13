@@ -8,28 +8,32 @@ body {
   font-size: var(--text-body);
   font-family: var(--font-body);
   line-height: var(--leading-lg);
+
+  background-image:  linear-gradient(#e0e0e046 1px, transparent 1px), linear-gradient(to right, #e0e0e046 1px, var(--beige-500) 1px);
+  background-size: 80px 80px;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   color: var(--color-text-headings);
   font-family: var(--font-heading);
   line-height: var(--leading-sm);
   text-transform: uppercase;
+  font-weight: 900;
 }
 
-h1 {
+h1, .h1 {
   font-size: var(--text-h1);
 }
 
-h2 {
+h2, .h2 {
   font-size: var(--text-h2);
 }
 
-h3 {
+h3, .h3 {
   font-size: var(--text-h3);
 }
 
-h4 {
+h4, .h4 {
   font-size: var(--text-h4);
 
   &.alternate {
@@ -39,11 +43,11 @@ h4 {
   }
 }
 
-h5 {
+h5, .h5 {
   font-size: var(--text-h5);
 }
 
-h6 {
+h6, .h6 {
   font-size: var(--text-h6);
 }
 
