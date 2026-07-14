@@ -7,15 +7,18 @@
   onMount(() => {
     const timelineWrapper = document.querySelector('.timeline-wrapper');
 		const mm = gsap.matchMedia();
-
+    
     if (!timelineWrapper) return;
+    
+    // function getScrollAmount() {
+    //   let timelineWidth = timelineWrapper?.scrollWidth;
 
-    function getScrollAmount() {
-      let timelineWrapperWidth = timelineWrapper.scrollWidth;
-      return -(timelineWrapperWidth - window.innerWidth);
-    }
+    //   if (!timelineWidth) return;
 
-    console.log(getScrollAmount());
+    //   return -(timelineWidth / window.innerWidth) * 100;
+    // }
+
+    // console.log(getScrollAmount());
 
 		mm.add('(min-width: 768px)', () => {
       gsap.to(timelineWrapper, {
@@ -23,8 +26,7 @@
         ease: "none",
         scrollTrigger: {
           trigger: '.section-my-career',
-          start: 'top -25%',
-          end: `bottom +=${getScrollAmount() * -1}`,
+          start: 'top -22%',
           pin: true,  
           scrub: 1,
           invalidateOnRefresh:true,
@@ -74,6 +76,7 @@
           <div>card</div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -81,7 +84,7 @@
 <style scoped>
   .section-my-career {
     @media (min-width: 768px) {
-      height: calc(100dvh + 100px);
+      height: calc(100dvh);
     }
   }
 
@@ -141,9 +144,16 @@
             width: 100%;
             border-block-start: 1px dashed var(--pink-200);
             
-            @media (min-width: 768px) {
+            @media (min-width: 768px) and (max-width: 999px) {
               width: 1px;
-              height: calc(100dvh - 100px);
+              height: calc(100dvh - 30dvh);
+              border: 0;
+              border-inline-start: 1px dashed var(--pink-200);
+            }
+
+            @media (min-width: 1000px) {
+              width: 1px;
+              height: calc(100dvh - 22dvh);
               border: 0;
               border-inline-start: 1px dashed var(--pink-200);
             }
