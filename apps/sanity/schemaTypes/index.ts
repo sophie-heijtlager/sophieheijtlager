@@ -1,5 +1,6 @@
 import { project } from './documents/project'
 import { marquee } from './documents/marquee'
+import { timelineCards } from './documents/timelineCards'
 import { label } from './objects/label'
 import { marqueeItem } from './objects/marqueeItem'
 import { homePage } from './pages/homePage'
@@ -13,6 +14,7 @@ export const schemaTypes = [
   // documents
   homePage,
   project,
+  timelineCards,
   marquee,
   myCareerSection,
   marqueeSection,

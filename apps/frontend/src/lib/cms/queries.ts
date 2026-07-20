@@ -24,7 +24,21 @@ export const projectsQuery = groq`*[_type == "project"]{
       _type == 'myCareer' => {
         _id,
         title,
-        paragraph
+        paragraph,
+        timelineCards[] -> {
+          image {
+            "imageUrl": asset->url
+          },  
+          labels[] {
+          text,
+          color,
+          icon,
+          border
+          }, 
+          years, 
+          heading, 
+          description
+        }
       },
       _type == 'about' => {
         _id,

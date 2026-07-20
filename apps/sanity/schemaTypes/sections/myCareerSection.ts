@@ -16,6 +16,17 @@ export const myCareerSection = {
       name: "paragraph",
       title: "Paragraph",
       type: "text"
+    }),
+    defineField({
+      name: 'timelineCards',
+      title: 'Timline Cards',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{type: 'timelineCards'}]
+        }
+      ]
     })
   ]
 }
