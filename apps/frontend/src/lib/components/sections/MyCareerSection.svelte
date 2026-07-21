@@ -2,7 +2,6 @@
   import TimelineCard from '../ui/TimelineCard.svelte';
 	import { onMount } from 'svelte';
 	import { gsap } from 'gsap';
-	import Label from '../ui/Label.svelte';
 
 	const { section } = $props();
 
@@ -12,27 +11,23 @@
 
 		if (!timelineWrapper) return;
 
-		// function getScrollAmount() {
-		//   let timelineWidth = timelineWrapper?.scrollWidth;
-
-		//   if (!timelineWidth) return;
-
-		//   return -(timelineWidth / window.innerWidth) * 100;
-		// }
-
-		// console.log(getScrollAmount());
+    function getScrollAmount() {
+      let timelineWidth = timelineWrapper?.scrollWidth;
+      return -(timelineWidth - window.innerWidth);
+    }    
 
 		mm.add('(min-width: 768px)', () => {
 			gsap.to(timelineWrapper, {
-				xPercent: -100,
+				x: getScrollAmount,
+        duration: 3,
 				ease: 'none',
 				scrollTrigger: {
 					trigger: '.section-my-career',
 					start: 'top -22%',
+          end: () => `+=${getScrollAmount() * -1}`,
 					pin: true,
 					scrub: 1,
 					invalidateOnRefresh: true,
-					markers: true
 				}
 			});
 		});
@@ -48,7 +43,7 @@
 
 		<div class="timeline-wrapper">
 			<div class="timeline-wrapper__lines">
-        {#each {length: 60}, i}
+        {#each {length: section.timelineCards.length * 7.5}, i}
 				  <div class="line"></div>
         {/each}
 			</div>
@@ -120,6 +115,10 @@
 						border-inline-start: 1px dashed var(--pink-200);
 					}
 				}
+
+        @media (max-width: 768px) {
+          display: none;
+        }
 			}
 
 			& .timeline-wrapper__cards {
@@ -130,16 +129,14 @@
 				width: 100%;
 
         display: flex;
-        gap: 10rem;
+        gap: 5rem;
 
         @media (max-width: 767px) {
           transform: unset;
-          top: 0;
-          left: 50%;
-          transform: translateX(-50%);
+          position: unset;
+
           gap: var(--space-md);
           flex-direction: column;
-
         }
 			}
 		}
