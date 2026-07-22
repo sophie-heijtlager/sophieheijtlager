@@ -99,7 +99,6 @@
 			width: 100%;
 			z-index: -1;
 			background-color: inherit;
-			border: inherit;
 		}
 
 		& .section-marquee__inner {
@@ -137,12 +136,12 @@
 		}
 
 		:global(&::before) {
-			left: -599px;
+			left: -199px;
 			border-block: 0.5px solid var(--dark-grey-100);
 		}
 
 		:global(&::after) {
-			right: -599px;
+			right: -199px;
 			border-block: 0.5px solid var(--dark-grey-100);
 		}
 
