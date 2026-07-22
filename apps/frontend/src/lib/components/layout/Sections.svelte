@@ -4,11 +4,13 @@
 	import MarqueeSection from "../sections/MarqueeSection.svelte";
 	import TextRevealSection from "../sections/TextRevealSection.svelte";
 	import TextPopupSection from "../sections/TextPopupSection.svelte";
+	import MyCareerSection from "../sections/MyCareerSection.svelte";
 
   const { sections = [] } = $props();
 
   const components: Record<string, Component<any>> = {
     about: AboutSection,
+		myCareer: MyCareerSection, 
 		marqueeSection: MarqueeSection,
 		textReveal: TextRevealSection,
 		textPopup: TextPopupSection,
