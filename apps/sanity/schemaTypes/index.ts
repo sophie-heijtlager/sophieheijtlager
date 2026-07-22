@@ -9,6 +9,7 @@ import { marqueeSection } from './sections/marqueeSection'
 import { textRevealSection } from './sections/textRevealSection'
 import { textPopupSection } from './sections/textPopupSection'
 import { myCareerSection } from './sections/myCareerSection'
+import { heroSection } from './sections/heroSection'
 
 export const schemaTypes = [
   // documents
@@ -21,6 +22,7 @@ export const schemaTypes = [
   aboutSection,
   textRevealSection,
   textPopupSection,
+  heroSection,
   
   // objects
   label,

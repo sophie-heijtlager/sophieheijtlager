@@ -17,7 +17,7 @@ export const homePage = {
       name: "sections",
       title: 'Sections',
       type: 'array',
-      of: [{type: 'about',}, {type: 'marqueeSection'}, {type: 'textReveal'}, {type: 'textPopup'}, {type: 'myCareer'}]
+      of: [{type: 'about',}, {type: 'marqueeSection'}, {type: 'textReveal'}, {type: 'textPopup'}, {type: 'myCareer'}, {type: 'homeHero'}]
     })
   ]
 }

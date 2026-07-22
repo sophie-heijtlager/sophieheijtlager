@@ -16,6 +16,4 @@
 	
 </script>
 
-<h1 style="height: 400px">Home pagina</h1>
-
 <Sections sections={data.homePage?.sections ?? []} />

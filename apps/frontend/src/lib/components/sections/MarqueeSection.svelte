@@ -24,7 +24,7 @@
 	});
 </script>
 
-<section class="section-md">
+<section class="section-md" style="padding: 0;">
 	{#each section.marquees as marquee, index (index)}
 		<div
 			class="section-marquee {marquee.color_scheme} container"
