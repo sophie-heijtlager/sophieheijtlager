@@ -34,7 +34,7 @@
 	});
 </script>
 
-<section class="section-my-career section-lg" data-scheme="primary-light">
+<section class="section-my-career section-lg" data-scheme="primary-light" aria-labelledby="{section.title}">
 	<div class="container my-career">
 		<div class="my-career__heading">
 			<h3>{section.title}</h3>
@@ -42,7 +42,7 @@
 		</div>
 
 		<div class="timeline-wrapper">
-			<div class="timeline-wrapper__lines">
+			<div class="timeline-wrapper__lines" aria-hidden="true">
         {#each {length: section.timelineCards.length * 7.5}, i}
 				  <div class="line"></div>
         {/each}

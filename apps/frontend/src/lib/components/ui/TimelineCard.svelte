@@ -6,7 +6,7 @@
 
 <div class="timeline-card">
   {#if content.image }
-	  <img class="timeline-card__image" src={content.image.imageUrl + '?w=1400&fit=max'} alt="Image displaying: {content.heading}" />
+	  <img class="timeline-card__image" src={content.image.imageUrl + '?w=1200&fit=max'} alt="Displaying: {content.heading}" />
   {/if}
 
   {#if content.labels}
@@ -19,7 +19,7 @@
 
   <div class="timeline-card__content">
     <div class="content-heading">{content.heading}</div>
-    <div class="content-description">{content.description}</div>
+    <p class="content-description">{content.description}</p>
   </div>
   
 </div>
