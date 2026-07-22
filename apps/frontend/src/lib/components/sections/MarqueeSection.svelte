@@ -82,12 +82,12 @@
 		position: relative;
 		transform: rotate(var(--marquee-rotation));
 
-		&:first-of-type {
+		&.dark {
 			justify-content: end;
 			z-index: 2;
 		}
 
-		&:last-of-type {
+		&.light {
 			top: -1rem;
 		}
 
@@ -138,16 +138,17 @@
 
 		:global(&::before) {
 			left: -599px;
+			border-block: 0.5px solid var(--dark-grey-100);
 		}
 
 		:global(&::after) {
 			right: -599px;
+			border-block: 0.5px solid var(--dark-grey-100);
 		}
 
 		:global(&.light) {
 			background-color: var(--beige-500);
 			color: var(--dark-grey-500);
-			border-block: 0.5px solid var(--dark-grey-100);
 		}
 
 		:global(&.dark) {
