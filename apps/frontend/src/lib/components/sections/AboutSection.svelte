@@ -26,8 +26,8 @@
 	});
 </script>
 
-<section class="container">
-	<div class="section-about section-md" data-scheme="primary-dark">
+<section class="container section-xl" style="padding-block-end: 0;">
+	<div class="section-about section-md" data-scheme="primary-light">
 		{#if section.images}
 			<div class="section-about__images">
 				{#each section.images as image, index (index)}
