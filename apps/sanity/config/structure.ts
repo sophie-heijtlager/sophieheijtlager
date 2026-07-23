@@ -11,7 +11,8 @@ export const structure = {
     S.divider(),
     projectsListItem(S),
     marqueesListItem(S),
-    timelineCardsListItem(S)
+    timelineCardsListItem(S),
+    footerListItem(S)
   ])
 }
 
@@ -23,3 +24,4 @@ const homePageListItem = (S: StructureBuilder) => S.listItem()
 const projectsListItem = (S: StructureBuilder) => S.documentTypeListItem('project')
 const marqueesListItem = (S: StructureBuilder) => S.documentTypeListItem('marquee')
 const timelineCardsListItem = (S: StructureBuilder) => S.documentTypeListItem('timelineCards')
+const footerListItem = (S: StructureBuilder) => S.documentTypeListItem('footer')

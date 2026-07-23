@@ -10,6 +10,7 @@ import { textRevealSection } from './sections/textRevealSection'
 import { textPopupSection } from './sections/textPopupSection'
 import { myCareerSection } from './sections/myCareerSection'
 import { heroSection } from './sections/heroSection'
+import { footer } from './documents/footer'
 
 export const schemaTypes = [
   // documents
@@ -26,5 +27,6 @@ export const schemaTypes = [
   
   // objects
   label,
-  marqueeItem
+  marqueeItem,
+  footer
 ]
