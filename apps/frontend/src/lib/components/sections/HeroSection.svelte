@@ -21,6 +21,10 @@
           <div class="grid-item h1" data-index={index}>{title}</div>
         {/each}
       </div>
+
+      <a class="grid-link" href="mailto:sophieheijtlager@gmail.com">
+        <span>Get in touch <i class="icon-arrow_outward"></i></span>
+      </a>
   
       <div class="grid-images">
         {#each section.images as image, index (index)}
@@ -55,9 +59,38 @@
       flex-direction: column;
       gap: 1.5rem;
 
+      & .grid-link {
+
+        & > span {
+          display: inline-flex;
+          align-items: center;
+          gap: var(--space-2xs);
+          border-block-end: 1px solid var(--color-text-body);
+          transition: opacity 0.2s ease-out;
+
+          & i {
+            transition: transform 0.2s ease-out;
+          }
+          
+          &:hover {
+            opacity: 0.6;
+            transition: opacity 0.2s ease-out;
+
+            & i {
+              transform: translate(2px, -2px);
+              transition: transform 0.2s ease-out;
+            }
+          }
+        }
+
+        @media (min-width: 992px) {
+          text-align: center;
+        }
+      }
+
 			& .section-hero__grid {
 				& > .grid-item {
-					font-size: clamp(3.5rem, -0.1339rem + 10.9388vw, 10.3125rem);
+					font-size: clamp(3.25rem, -0.1339rem + 10.9388vw, 10.3125rem);
 					line-height: 75%;
 
 					@media (min-width: 992px) {
@@ -105,13 +138,11 @@
 				display: flex;
 
 				& .grid-images__image {
-					height: clamp(7.8125rem, 5.8036rem + 10.9388vw, 13.5rem);
-          flex: 1;
+          height: 50vw;
 					object-fit: cover;
 					aspect-ratio: 3/4;
 
 					border-radius: var(--space-2xs);
-          animation: wobble 7s linear infinite;
 
 					&:first-of-type {
 						transform: rotate(-2deg);
@@ -119,15 +150,37 @@
 
 					&:last-of-type {
 						transform: rotate(2deg);
+
+            @media (max-width: 767px) {
+              padding-block-start: 1rem;
+            }
 					}
 
-					@media (min-width: 992px) {
-            height: 48%;
+          @media (min-width: 768px) {
+            animation: wobble 7s linear infinite;
 						position: absolute;
+            height: 24vw;
+
+            &:first-of-type {
+              right: 3rem;
+              top: -0.5rem;
+              z-index: -1;
+					  }
+
+            &:last-of-type {
+              right: 0;
+              bottom: -0.5rem;
+            }
+					}
+
+
+					@media (min-width: 992px) {
+            height: 50%;
 
             &:first-of-type {
               left: 3rem;
-              bottom: 2rem;
+              bottom: 0rem;
+              top: unset;
               z-index: -1;
 					  }
 
