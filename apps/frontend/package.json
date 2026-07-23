@@ -34,6 +34,7 @@
 	},
 	"dependencies": {
 		"@sanity/client": "^7.22.0",
+		"@sveltejs/adapter-vercel": "^6.3.4",
 		"groq": "^5.24.0",
 		"sass-embedded": "^1.99.0"
 	}
