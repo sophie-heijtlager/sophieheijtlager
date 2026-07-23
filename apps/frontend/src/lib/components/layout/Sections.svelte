@@ -5,10 +5,12 @@
 	import TextRevealSection from "../sections/TextRevealSection.svelte";
 	import TextPopupSection from "../sections/TextPopupSection.svelte";
 	import MyCareerSection from "../sections/MyCareerSection.svelte";
+	import HeroSection from "../sections/HeroSection.svelte";
 
   const { sections = [] } = $props();
 
   const components: Record<string, Component<any>> = {
+		homeHero: HeroSection,
     about: AboutSection,
 		myCareer: MyCareerSection, 
 		marqueeSection: MarqueeSection,

@@ -12,6 +12,14 @@ export const projectsQuery = groq`*[_type == "project"]{
     sections[]{
       _key,
       _type,
+      _type == 'homeHero' => {
+        titles[],
+        images[] {
+          asset,
+          "imageUrl": asset->url
+        },
+        label,
+      },
       _type == 'marqueeSection' => {
         _id,
         title,
