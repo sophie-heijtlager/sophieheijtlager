@@ -1,4 +1,5 @@
 import { project } from './documents/project'
+import { footer } from './documents/footer'
 import { marquee } from './documents/marquee'
 import { timelineCards } from './documents/timelineCards'
 import { label } from './objects/label'
@@ -10,7 +11,6 @@ import { textRevealSection } from './sections/textRevealSection'
 import { textPopupSection } from './sections/textPopupSection'
 import { myCareerSection } from './sections/myCareerSection'
 import { heroSection } from './sections/heroSection'
-import { footer } from './documents/footer'
 
 export const schemaTypes = [
   // documents
@@ -24,9 +24,9 @@ export const schemaTypes = [
   textRevealSection,
   textPopupSection,
   heroSection,
+  footer,
   
   // objects
   label,
-  marqueeItem,
-  footer
+  marqueeItem
 ]

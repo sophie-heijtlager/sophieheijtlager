@@ -1,7 +1,7 @@
 import { defineField } from "sanity";
 
 export const footer = {
-  name: "Footer",
+  name: "footer",
   title: "Footer",
   type: "document",
   fields: [
