@@ -55,3 +55,9 @@ section, [data-scheme] {
   background: var(--color-surface);
   color: var(--color-text-body);
 }
+
+#smooth-wrapper {
+  @media (max-width: 767px) {
+    overflow: hidden !important;
+  }
+}
