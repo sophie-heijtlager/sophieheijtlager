@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { urlFor } from "$lib/cms/image";
+
   const { data } = $props();
   console.log(data);
 </script>
@@ -31,15 +33,16 @@
           </div>
         {/each}
 
-			</div>
+			</div> 
 
-			<img src="{data.logo._upload.file.name}" alt="" class="footer-inner__title" />
+			<img src={urlFor(data.logo.asset._ref).width(300).url()} alt="Sophie Heijtlager logo" class="footer-inner__title" />
 		</div>
 	</div>
 </footer>
 
 <style scoped>
 	footer {
+    position: relative;
     --color-text-headings: var(--beige-500);
 
 		background-color: var(--dark-grey-500);
@@ -120,6 +123,9 @@
 
       & .footer-inner__title {
         position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
         color: var(--beige-500);
       }
 
