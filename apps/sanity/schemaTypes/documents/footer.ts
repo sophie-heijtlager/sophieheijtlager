@@ -6,9 +6,25 @@ export const footer = {
   type: "document",
   fields: [
     defineField({
-      name: 'title',
+      name: 'contact_title',
       type: 'string',
-      title: "Title"
-    })
+      title: "Contact title"
+    }),
+    defineField({
+      name: 'contact_text',
+      type: 'string',
+      title: "Contact text"
+    }),
+    defineField({
+      name: 'menu_items',
+      type: 'array',
+      title: "Menu items",
+      of: [{type: 'string'}]
+    }),
+    defineField({
+      name: 'logo',
+      type: 'image',
+      title: "Logo",
+    }),
   ]
 }

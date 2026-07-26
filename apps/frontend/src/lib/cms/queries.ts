@@ -6,6 +6,14 @@ export const projectsQuery = groq`*[_type == "project"]{
   labels
 }`;
 
+export const footerQuery = groq`*[_type == "footer"][0]{
+  _id,
+  contact_title,
+  contact_text,
+  menu_items[],
+  logo
+}`
+
   export const homePageQuery = groq`*[_type == "homepage"][0]{
     _id,
     title,

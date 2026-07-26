@@ -1,4 +1,6 @@
-<script>
+<script lang="ts">
+  const { data } = $props();
+  console.log(data);
 </script>
 
 <footer>
@@ -6,28 +8,32 @@
 		<div class="footer-inner">
 			<div class="footer-inner__contact">
 				<div class="contact-heading">
-          <span class="h4">Let's get in touch &#x1f44b;&#x1f3fc;</span>
+          <span class="h4">{data.contact_title} &#x1f44b;&#x1f3fc;</span>
         </div>
 
 				<div class="contact-fields">
-					<div class="field">Get in touch</div>
+					<div class="field">{data.contact_text}</div>
 					<a aria-label="Email to sophieheijtlager@gmail.com" href="mailto:sophieheijtlager@gmail.com" class="field"><i class="icon-arrow_outward"></i></a>
 				</div>
 			</div>
 
 			<div class="footer-inner__links">
-        <div>About</div>
-        <div>My career</div>
-        <div class="link">
-          <span>Contact</span>
-          <div class="link-socials">
-            <div class="link-socials__icon"><i class="icon-mail"></i></div>
-            <div class="link-socials__icon"><i class="icon-linkedin"></i></div>
+        {#each data.menu_items as item, index (index)}
+          <div class:link={item === 'Contact'}>
+            <span>{item}</span>
+
+            {#if item === 'Contact'}
+            <div class="link-socials">
+              <div class="link-socials__icon"><i class="icon-mail"></i></div>
+              <div class="link-socials__icon"><i class="icon-linkedin"></i></div>
+            </div>
+            {/if }
           </div>
-        </div>
+        {/each}
+
 			</div>
 
-			<img src="" alt="" class="footer-inner__title" />
+			<img src="{data.logo._upload.file.name}" alt="" class="footer-inner__title" />
 		</div>
 	</div>
 </footer>
