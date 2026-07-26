@@ -12,7 +12,8 @@ export const structure = {
     projectsListItem(S),
     marqueesListItem(S),
     timelineCardsListItem(S),
-    footerListItem(S)
+    footerListItem(S),
+    headerListItem(S)
   ])
 }
 
@@ -27,3 +28,6 @@ const timelineCardsListItem = (S: StructureBuilder) => S.documentTypeListItem('t
 const footerListItem = (S: StructureBuilder) => S.listItem()
   .title('Footer')
   .child(S.document().schemaType('footer').documentId('footer'))
+const headerListItem = (S: StructureBuilder) => S.listItem()
+  .title('Header')
+  .child(S.document().schemaType('header').documentId('header'))

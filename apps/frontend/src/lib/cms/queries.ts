@@ -15,6 +15,12 @@ export const footerQuery = groq`*[_type == "footer"][0]{
   logo
 }`
 
+export const headerQuery = groq`*[_type == "header"][0]{
+  _id,
+  logo,
+  link_text
+}`
+
   export const homePageQuery = groq`*[_type == "homepage"][0]{
     _id,
     title,

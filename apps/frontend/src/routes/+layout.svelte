@@ -12,6 +12,6 @@
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
-<Header />
+<Header data={data.header}/>
 	{@render children()}
 <Footer data={data.footer}/>

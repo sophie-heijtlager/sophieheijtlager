@@ -24,11 +24,10 @@
 
 			<div class="footer-inner__links">
         {#each data.menu_items as item, index (index)}
-          <div class="link">
+          <div class="link" data-link={item}>
             <span>{item}</span>
           </div>
         {/each}
-
 			</div> 
 
 			<img src={urlFor(data.logo.asset._ref).width(300).url()} alt="Sophie Heijtlager logo" class="footer-inner__title" />

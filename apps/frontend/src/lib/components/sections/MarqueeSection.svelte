@@ -4,7 +4,6 @@
 	import Tooltip from '../ui/Tooltip.svelte';
 
 	const { section } = $props();
-	console.log(section.marquees);
 
 	onMount(() => {
 		const sectionMarquee = document.querySelectorAll('.section-marquee');
