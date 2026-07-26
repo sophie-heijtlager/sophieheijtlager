@@ -1,7 +1,27 @@
 <script lang="ts">
 	import { urlFor } from "$lib/cms/image";
+	import { onMount } from "svelte";
 
   const { data } = $props();
+
+  onMount(() => {
+    const linkSections = document.querySelectorAll('[data-section]');
+    const footerLinks = document.querySelectorAll('.link-wrapper');
+
+    linkSections.forEach(section => {
+      const sectionId = section.dataset.section;
+
+      footerLinks.forEach(link => {
+        const linkId = link.dataset.link;
+        const linkIdLowercase = linkId.toLowerCase();
+        const linkIdToMatch = linkIdLowercase.replace(' ', '-');
+        
+        if (linkIdToMatch === sectionId) {
+          console.log(linkIdToMatch);
+        }
+      })
+    })
+  })
 </script>
 
 <footer>
@@ -24,8 +44,12 @@
 
 			<div class="footer-inner__links">
         {#each data.menu_items as item, index (index)}
-          <div class="link" data-link={item}>
-            <span>{item}</span>
+          <div class="link-wrapper" data-link={item}>
+            {#if item === 'contact' || item === 'Contact'}
+              <a class="link" href="mailto:sophieheijtlager@gmail.com">{item}</a>
+            {:else}
+              <span class="link">{item}</span>
+            {/if }
           </div>
         {/each}
 			</div> 
@@ -84,8 +108,17 @@
         gap: var(--space-sm);
         flex-direction: column;
 
-        & > .link {
+        & > .link-wrapper {
           justify-self: end;
+
+          & .link {
+            transition: color 0.2s ease-out;
+
+            &:hover, :active {
+              color: var(--beige-700);
+              transition: color 0.2s ease-out;
+            }
+          }
         }
 
         @media (min-width: 992px) {

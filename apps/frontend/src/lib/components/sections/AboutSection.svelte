@@ -26,7 +26,7 @@
 	});
 </script>
 
-<section class="container section-xl" style="padding-block-end: 0;">
+<section class="container section-xl" style="padding-block-end: 0;" data-section="about-me">
 	<div class="section-about section-md" data-scheme="primary-light">
 		{#if section.images}
 			<div class="section-about__images">
