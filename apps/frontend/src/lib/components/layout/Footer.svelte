@@ -15,9 +15,9 @@
 
 				<div class="contact-fields">
 					<a aria-label="Email to sophieheijtlager@gmail.com" href="mailto:sophieheijtlager@gmail.com" class="contact-fields__field">{data.contact_text}</a>
-          {#if data.social_icons}
-            {#each data.social_icons as icon, index (index)}
-              <a href="#" target="_blank" class="contact-fields__field"><i class="icon-{icon}"></i></a>
+          {#if data.socials}
+            {#each data.socials as platform, index (index)}
+              <a aria-label="Link to: {platform.icon_name}" href="{platform.link}" target="_blank" class="contact-fields__field"><i class="icon-{platform.icon_name}"></i></a>
             {/each}
           {/if }
         </div>
@@ -110,5 +110,8 @@
       }
 		}
 
+    @media (min-width: 992px) {
+		  padding-block-end: var(--section-2xl); 
+    }
 	}
 </style>

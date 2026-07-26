@@ -11,6 +11,7 @@ import { textRevealSection } from './sections/textRevealSection'
 import { textPopupSection } from './sections/textPopupSection'
 import { myCareerSection } from './sections/myCareerSection'
 import { heroSection } from './sections/heroSection'
+import { socials } from './objects/socials'
 
 export const schemaTypes = [
   // documents
@@ -28,5 +29,6 @@ export const schemaTypes = [
   
   // objects
   label,
-  marqueeItem
+  marqueeItem,
+  socials
 ]

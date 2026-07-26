@@ -11,7 +11,7 @@ export const footerQuery = groq`*[_type == "footer"][0]{
   contact_title,
   contact_text,
   menu_items[],
-  social_icons[],
+  socials,
   logo
 }`
 

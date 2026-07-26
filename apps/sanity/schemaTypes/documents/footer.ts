@@ -22,10 +22,10 @@ export const footer = {
       of: [{type: 'string'}]
     }),
     defineField({
-      name: 'social_icons',
+      name: 'socials',
       type: 'array',
       title: "Social media icons",
-      of: [{type: 'string'}]
+      of: [{type: 'socials'}]
     }),
     defineField({
       name: 'logo',
