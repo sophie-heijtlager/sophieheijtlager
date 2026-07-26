@@ -36,6 +36,12 @@ export const marquee = {
           to: [{type: 'marqueeItem'}]
         }
       ]
+    }),
+    defineField({
+      name: 'change_position',
+      title: 'Change block position?',
+      type: 'boolean',
+      initialValue: false
     })
   ],
 }

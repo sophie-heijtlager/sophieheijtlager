@@ -179,7 +179,7 @@
 
             &:first-of-type {
               left: 3rem;
-              bottom: 0rem;
+              bottom: 2rem;
               top: unset;
               z-index: -1;
 					  }

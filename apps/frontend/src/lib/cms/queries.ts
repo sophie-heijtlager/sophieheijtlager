@@ -6,6 +6,15 @@ export const projectsQuery = groq`*[_type == "project"]{
   labels
 }`;
 
+export const footerQuery = groq`*[_type == "footer"][0]{
+  _id,
+  contact_title,
+  contact_text,
+  menu_items[],
+  socials,
+  logo
+}`
+
   export const homePageQuery = groq`*[_type == "homepage"][0]{
     _id,
     title,
@@ -26,7 +35,8 @@ export const projectsQuery = groq`*[_type == "project"]{
         marquees[] -> {
           color_scheme,
           rotation,
-          items[] -> {title, show_info, level}
+          items[] -> {title, show_info, level},
+          change_position
         }
       },
       _type == 'myCareer' => {

@@ -1,20 +1,25 @@
 <script>
 	import { onMount } from 'svelte';
-	import { gsap } from 'gsap';
 	import { ScrollSmoother } from '$lib/utils/gsap.js';
 	import Sections from '$lib/components/layout/Sections.svelte';
 
 	const { data } = $props();
 
 	onMount(() => {
-		const mm = gsap.matchMedia();
-
-		mm.add('(min-width: 768px)', () => {
+		function createScrollSmoother() {
 			ScrollSmoother.create({
 				smooth: 1, 
 				effects: true
 			});
-		});
+		}
+
+		createScrollSmoother();
+
+		document.addEventListener('resize', () => {
+			if (window.innerWidth < 768) {
+				createScrollSmoother();
+			}
+		})
 	})
 	
 </script>
