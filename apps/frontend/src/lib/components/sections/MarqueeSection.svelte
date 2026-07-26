@@ -4,6 +4,7 @@
 	import Tooltip from '../ui/Tooltip.svelte';
 
 	const { section } = $props();
+	console.log(section.marquees);
 
 	onMount(() => {
 		const sectionMarquee = document.querySelectorAll('.section-marquee');
@@ -24,10 +25,10 @@
 	});
 </script>
 
-<section class="section-md" style="padding: 0;">
+<section>
 	{#each section.marquees as marquee, index (index)}
 		<div
-			class="section-marquee {marquee.color_scheme} container"
+			class="section-marquee {marquee.color_scheme} container {marquee.change_position? 'top' : ''}"
 			style="--marquee-rotation:{marquee.rotation}deg"
 		>
 			<div class="section-marquee__inner">
@@ -87,7 +88,7 @@
 			z-index: 2;
 		}
 
-		&.light {
+		&.top {
 			top: -1rem;
 		}
 

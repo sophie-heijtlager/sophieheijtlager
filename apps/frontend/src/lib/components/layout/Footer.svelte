@@ -2,7 +2,6 @@
 	import { urlFor } from "$lib/cms/image";
 
   const { data } = $props();
-  console.log(data);
 </script>
 
 <footer>

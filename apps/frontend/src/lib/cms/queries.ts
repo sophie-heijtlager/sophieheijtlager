@@ -35,7 +35,8 @@ export const footerQuery = groq`*[_type == "footer"][0]{
         marquees[] -> {
           color_scheme,
           rotation,
-          items[] -> {title, show_info, level}
+          items[] -> {title, show_info, level},
+          change_position
         }
       },
       _type == 'myCareer' => {

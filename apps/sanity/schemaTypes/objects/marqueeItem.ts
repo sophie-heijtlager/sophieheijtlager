@@ -30,6 +30,6 @@ export const marqueeItem = {
         ]
       },
       initialValue: 'level_01'
-    })
+    }),
   ]
 }
