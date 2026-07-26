@@ -8,6 +8,8 @@
     const linkSections = document.querySelectorAll('[data-section]');
     const footerLinks = document.querySelectorAll('.link-wrapper');
 
+    if (!linkSections || !footerLinks) return;
+
     linkSections.forEach(section => {
       const sectionId = section.dataset.section;
 
@@ -17,7 +19,10 @@
         const linkIdToMatch = linkIdLowercase.replace(' ', '-');
         
         if (linkIdToMatch === sectionId) {
-          console.log(linkIdToMatch);
+          link.addEventListener('click', () => {
+            section.scrollIntoView({behavior: "smooth", block: "end"});
+            console.log(section);
+          })
         }
       })
     })
@@ -95,6 +100,11 @@
             border-radius: var(--space-2xs);
             display: flex;
             line-height: 100%;
+
+            &:hover {
+              opacity: 0.6;
+              transition: opacity 0.2s ease;
+            }
           }
         }
 
@@ -110,6 +120,7 @@
 
         & > .link-wrapper {
           justify-self: end;
+          cursor: pointer;
 
           & .link {
             transition: color 0.2s ease-out;
