@@ -14,22 +14,19 @@
         </div>
 
 				<div class="contact-fields">
-					<div class="field">{data.contact_text}</div>
-					<a aria-label="Email to sophieheijtlager@gmail.com" href="mailto:sophieheijtlager@gmail.com" class="field"><i class="icon-arrow_outward"></i></a>
-				</div>
+					<a aria-label="Email to sophieheijtlager@gmail.com" href="mailto:sophieheijtlager@gmail.com" class="contact-fields__field">{data.contact_text}</a>
+          {#if data.social_icons}
+            {#each data.social_icons as icon, index (index)}
+              <a href="#" target="_blank" class="contact-fields__field"><i class="icon-{icon}"></i></a>
+            {/each}
+          {/if }
+        </div>
 			</div>
 
 			<div class="footer-inner__links">
         {#each data.menu_items as item, index (index)}
-          <div class:link={item === 'Contact'}>
+          <div class="link">
             <span>{item}</span>
-
-            {#if item === 'Contact'}
-            <div class="link-socials">
-              <div class="link-socials__icon"><i class="icon-mail"></i></div>
-              <div class="link-socials__icon"><i class="icon-linkedin"></i></div>
-            </div>
-            {/if }
           </div>
         {/each}
 
@@ -69,7 +66,7 @@
           align-items: center;
           gap: var(--space-xs);
 
-          & .field {
+          & .contact-fields__field {
             padding: var(--space-sm);
             background-color: var(--dark-grey-400);
             color: var(--dark-grey-200);
@@ -86,33 +83,11 @@
 
       & .footer-inner__links {
         display: flex;
-        flex-direction: column;
         gap: var(--space-sm);
+        flex-direction: column;
 
-        & .link {
-          display: flex;
-          flex-direction: column;
-          gap: var(--space-2xs);
-
-          & .link-socials {
-            display: flex;
-            gap: var(--space-xs);
-
-            & .link-socials__icon {
-              display: flex;
-
-              padding: var(--space-sm);
-              background-color: var(--dark-grey-400);
-              border-radius: var(--space-2xs);
-              color: var(--beige-500);
-
-              font-size: 1.25rem;
-            }
-          }
-          
-          @media (min-width: 992px) {
-            gap: var(--space-sm);
-          }
+        & > .link {
+          justify-self: end;
         }
 
         @media (min-width: 992px) {
