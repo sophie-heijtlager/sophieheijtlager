@@ -1,12 +1,13 @@
 
 <script lang="ts">
+  import { urlFor } from "$lib/cms/image";
   import Label from "./Label.svelte";
   const { content } = $props();
 </script>
 
 <div class="timeline-card">
   {#if content.image }
-	  <img class="timeline-card__image" src={content.image.imageUrl + '?w=1200&fit=max'} alt="Displaying: {content.heading}" />
+    <img loading="lazy" class="timeline-card__image" src={urlFor(content.image.asset._ref).width(800).url()} alt="Displaying: {content.heading}"/>
   {/if}
 
   {#if content.labels}

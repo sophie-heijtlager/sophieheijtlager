@@ -44,12 +44,25 @@ export const headerQuery = groq`*[_type == "header"][0]{
           change_position
         }
       },
+      _type == 'certificates' => {
+        _id,
+        title,
+        certificate_items[] -> {
+          image {
+            asset
+          },
+          institution,
+          certificate,
+          date
+        }
+      },
       _type == 'myCareer' => {
         _id,
         title,
         paragraph,
         timelineCards[] -> {
           image {
+            asset,
             "imageUrl": asset->url
           },  
           labels[] {

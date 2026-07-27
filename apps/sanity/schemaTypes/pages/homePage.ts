@@ -1,23 +1,31 @@
-import { defineField } from "sanity";
+import {defineField} from 'sanity'
 
 export const homePage = {
   name: 'homepage',
-  title: "Homepage",
+  title: 'Homepage',
   type: 'document',
   validation: (Rule: any) => Rule.required(),
   fields: [
     defineField({
       name: 'title',
-      title: "Title",
+      title: 'Title',
       type: 'string',
       hidden: true,
-      initialValue: 'Homepage'
+      initialValue: 'Homepage',
     }),
     defineField({
-      name: "sections",
+      name: 'sections',
       title: 'Sections',
       type: 'array',
-      of: [{type: 'about',}, {type: 'marqueeSection'}, {type: 'textReveal'}, {type: 'textPopup'}, {type: 'myCareer'}, {type: 'homeHero'}]
-    })
-  ]
+      of: [
+        {type: 'about'},
+        {type: 'marqueeSection'},
+        {type: 'textReveal'},
+        {type: 'textPopup'},
+        {type: 'myCareer'},
+        {type: 'homeHero'},
+        {type: 'certificates'}
+      ],
+    }),
+  ],
 }

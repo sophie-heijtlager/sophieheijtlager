@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import Label from '../ui/Label.svelte';
 	import { gsap } from '$lib/utils/gsap';
+	import { urlFor } from '$lib/cms/image';
 
 	const { section } = $props();
 
@@ -26,13 +27,13 @@
 	});
 </script>
 
-<section class="container section-xl" style="padding-block-end: 0;">
+<section class="container section-lg" style="padding-block-end: 0;">
 	<div class="section-about section-md" data-scheme="primary-light">
 		{#if section.images}
 			<div class="section-about__images">
 				{#each section.images as image, index (index)}
 					<div class="image image-{index}">
-						<img src={image.imageUrl + '?w=1400&fit=max'} alt="images about me" />
+						<img loading="lazy" src={urlFor(image.asset._ref).width(800).url()} alt="images about me"/>
 					</div>
 				{/each}
 			</div>
