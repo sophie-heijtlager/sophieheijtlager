@@ -12,6 +12,10 @@
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
-<Header data={data.header}/>
-	{@render children()}
-<Footer data={data.footer}/>
+<div id="smooth-wrapper">
+	<div id="smooth-content">
+		<Header data={data.header} />
+		{@render children()}
+		<Footer data={data.footer} />
+	</div>
+</div>

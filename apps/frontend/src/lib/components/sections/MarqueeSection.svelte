@@ -163,5 +163,9 @@
 			color: var(--beige-500);
 			background-color: var(--dark-grey-500);
 		}
+
+		@media (max-width: 767px) {
+			border-block: 0.5px solid var(--dark-grey-100);	
+		}
 	}
 </style>

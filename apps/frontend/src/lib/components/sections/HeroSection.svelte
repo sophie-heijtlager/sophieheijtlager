@@ -197,12 +197,12 @@
         }
 			}
 		}
-
+    
 		@media (min-width: 992px) {
-			height: 90dvh;
+      height: 90dvh;
 			gap: var(--space-md);
 			justify-content: center;
-			padding: 0;
+      padding: 0;
 		}
 	}
 

@@ -1,31 +1,8 @@
 <script lang="ts">
 	import { urlFor } from "$lib/cms/image";
-  import { gsap } from "$lib/utils/gsap";
-	import { onMount } from "svelte";
   
   const { data }= $props();
 
-  onMount(() => {
-    pinHeader();
-    
-    document.addEventListener('resize', () => {
-      pinHeader();
-    })
-
-    function pinHeader() {
-      const header = document.querySelector('header');
-
-      gsap.to(header, {
-        scrollTrigger: {
-          trigger: header,
-          pin: true,
-          start: "top top",
-          end: 'max',
-          pinSpacing: false
-        }
-      }) 
-    }
-  })
 </script>
 
 <header>
