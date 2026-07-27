@@ -16,12 +16,6 @@ export const footer = {
       title: "Contact text"
     }),
     defineField({
-      name: 'menu_items',
-      type: 'array',
-      title: "Menu items",
-      of: [{type: 'string'}]
-    }),
-    defineField({
       name: 'socials',
       type: 'array',
       title: "Social media icons",

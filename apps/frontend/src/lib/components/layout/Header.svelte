@@ -6,19 +6,26 @@
   const { data }= $props();
 
   onMount(() => {
-    const header = document.querySelector('header');
+    pinHeader();
+    
+    document.addEventListener('resize', () => {
+      pinHeader();
+    })
 
-    gsap.to(header, {
-      scrollTrigger: {
-        trigger: header,
-        pin: true,
-        start: "top top",
-        end: 'max',
-        pinSpacing: false
-      }
-    }) 
+    function pinHeader() {
+      const header = document.querySelector('header');
+
+      gsap.to(header, {
+        scrollTrigger: {
+          trigger: header,
+          pin: true,
+          start: "top top",
+          end: 'max',
+          pinSpacing: false
+        }
+      }) 
+    }
   })
-
 </script>
 
 <header>
@@ -43,7 +50,7 @@
     background-color: rgba(254, 252, 251, 0.9);
     backdrop-filter: blur(8px);
 
-    padding-block: var(--space-md);
+    padding-block: var(--space-sm);
     z-index: 999;
 
     .header-inner {

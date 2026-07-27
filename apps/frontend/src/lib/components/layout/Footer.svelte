@@ -1,32 +1,7 @@
 <script lang="ts">
 	import { urlFor } from "$lib/cms/image";
-	import { onMount } from "svelte";
 
   const { data } = $props();
-
-  onMount(() => {
-    const linkSections = document.querySelectorAll('[data-section]');
-    const footerLinks = document.querySelectorAll('.link-wrapper');
-
-    if (!linkSections || !footerLinks) return;
-
-    linkSections.forEach(section => {
-      const sectionId = section.dataset.section;
-
-      footerLinks.forEach(link => {
-        const linkId = link.dataset.link;
-        const linkIdLowercase = linkId.toLowerCase();
-        const linkIdToMatch = linkIdLowercase.replace(' ', '-');
-        
-        if (linkIdToMatch === sectionId) {
-          link.addEventListener('click', () => {
-            section.scrollIntoView({behavior: "smooth", block: "end"});
-            console.log(section);
-          })
-        }
-      })
-    })
-  })
 </script>
 
 <footer>
@@ -46,18 +21,6 @@
           {/if }
         </div>
 			</div>
-
-			<div class="footer-inner__links">
-        {#each data.menu_items as item, index (index)}
-          <div class="link-wrapper" data-link={item}>
-            {#if item === 'contact' || item === 'Contact'}
-              <a class="link" href="mailto:sophieheijtlager@gmail.com">{item}</a>
-            {:else}
-              <span class="link">{item}</span>
-            {/if }
-          </div>
-        {/each}
-			</div> 
 
 			<img src={urlFor(data.logo.asset._ref).width(300).url()} alt="Sophie Heijtlager logo" class="footer-inner__title" />
 		</div>
@@ -113,36 +76,13 @@
         }
       }
 
-      & .footer-inner__links {
-        display: flex;
-        gap: var(--space-sm);
-        flex-direction: column;
-
-        & > .link-wrapper {
-          justify-self: end;
-          cursor: pointer;
-
-          & .link {
-            transition: color 0.2s ease-out;
-
-            &:hover, :active {
-              color: var(--beige-700);
-              transition: color 0.2s ease-out;
-            }
-          }
-        }
-
-        @media (min-width: 992px) {
-          flex-direction: row;
-          gap: var(--space-2xl);
-        }
-      }
-
       & .footer-inner__title {
         position: absolute;
         bottom: 0;
-        left: 0;
+        left: 50%;
+        transform: translateX(-50%);
         width: 100%;
+        max-width: 1440px;
         color: var(--beige-500);
       }
 

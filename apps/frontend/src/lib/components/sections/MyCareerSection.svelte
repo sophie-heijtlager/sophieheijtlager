@@ -34,7 +34,7 @@
 	});
 </script>
 
-<section class="section-my-career section-lg" data-scheme="primary-light" aria-labelledby="{section.title}" data-section="my-career">
+<section class="section-my-career section-lg" data-scheme="primary-light" aria-labelledby="{section.title}">
 	<div class="container my-career">
 		<div class="my-career__heading">
 			<h3>{section.title}</h3>
