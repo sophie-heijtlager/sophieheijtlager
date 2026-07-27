@@ -60,26 +60,26 @@
       gap: 1.5rem;
 
       & .grid-link {
+        transition: opacity 0.2s ease-out;
 
         & > span {
           display: inline-flex;
           align-items: center;
           gap: var(--space-2xs);
           border-block-end: 1px solid var(--color-text-body);
-          transition: opacity 0.2s ease-out;
 
           & i {
             transition: transform 0.2s ease-out;
           }
-          
-          &:hover {
-            opacity: 0.6;
-            transition: opacity 0.2s ease-out;
+        }
+        
+        &:hover {
+          opacity: 0.6;
+          transition: opacity 0.2s ease-out;
 
-            & i {
-              transform: translate(2px, -2px);
-              transition: transform 0.2s ease-out;
-            }
+          & i {
+            transform: translate(2px, -2px);
+            transition: transform 0.2s ease-out;
           }
         }
 
@@ -199,7 +199,7 @@
 		}
 
 		@media (min-width: 992px) {
-			height: 95dvh;
+			height: 90dvh;
 			gap: var(--space-md);
 			justify-content: center;
 			padding: 0;

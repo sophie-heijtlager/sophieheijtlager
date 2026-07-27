@@ -1,6 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
-	import { ScrollSmoother } from '$lib/utils/gsap.js';
+	import { ScrollSmoother, ScrollTrigger } from '$lib/utils/gsap.js';
 	import Sections from '$lib/components/layout/Sections.svelte';
 
 	const { data } = $props();

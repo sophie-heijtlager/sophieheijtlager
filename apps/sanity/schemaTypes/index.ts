@@ -1,5 +1,6 @@
 import { project } from './documents/project'
 import { footer } from './documents/footer'
+import { header } from './documents/header'
 import { marquee } from './documents/marquee'
 import { timelineCards } from './documents/timelineCards'
 import { label } from './objects/label'
@@ -26,6 +27,7 @@ export const schemaTypes = [
   textPopupSection,
   heroSection,
   footer,
+  header,
   
   // objects
   label,

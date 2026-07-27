@@ -22,15 +22,6 @@
         </div>
 			</div>
 
-			<div class="footer-inner__links">
-        {#each data.menu_items as item, index (index)}
-          <div class="link">
-            <span>{item}</span>
-          </div>
-        {/each}
-
-			</div> 
-
 			<img src={urlFor(data.logo.asset._ref).width(300).url()} alt="Sophie Heijtlager logo" class="footer-inner__title" />
 		</div>
 	</div>
@@ -72,6 +63,11 @@
             border-radius: var(--space-2xs);
             display: flex;
             line-height: 100%;
+
+            &:hover {
+              opacity: 0.6;
+              transition: opacity 0.2s ease;
+            }
           }
         }
 
@@ -80,26 +76,13 @@
         }
       }
 
-      & .footer-inner__links {
-        display: flex;
-        gap: var(--space-sm);
-        flex-direction: column;
-
-        & > .link {
-          justify-self: end;
-        }
-
-        @media (min-width: 992px) {
-          flex-direction: row;
-          gap: var(--space-2xl);
-        }
-      }
-
       & .footer-inner__title {
         position: absolute;
         bottom: 0;
-        left: 0;
+        left: 50%;
+        transform: translateX(-50%);
         width: 100%;
+        max-width: 1440px;
         color: var(--beige-500);
       }
 

@@ -4,7 +4,6 @@
 	import Tooltip from '../ui/Tooltip.svelte';
 
 	const { section } = $props();
-	console.log(section.marquees);
 
 	onMount(() => {
 		const sectionMarquee = document.querySelectorAll('.section-marquee');
@@ -137,13 +136,21 @@
 		}
 
 		:global(&::before) {
-			left: -199px;
+			left: -99px;
 			border-block: 0.5px solid var(--dark-grey-100);
+			
+			@media (min-width: 1200px) {
+				left: -599px;
+			}
 		}
 
 		:global(&::after) {
-			right: -199px;
+			right: -99px;
 			border-block: 0.5px solid var(--dark-grey-100);
+
+			@media (min-width: 1200px) {
+				right: -599px;
+			}
 		}
 
 		:global(&.light) {
