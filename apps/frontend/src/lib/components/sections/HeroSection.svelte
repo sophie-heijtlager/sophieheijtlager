@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { urlFor } from '$lib/cms/image';
 	import Label from '../ui/Label.svelte';
 	const { section } = $props();
 
@@ -28,9 +29,9 @@
   
       <div class="grid-images">
         {#each section.images as image, index (index)}
-          <img
+          <img 
             class="grid-images__image"
-            src={image.imageUrl + '?w=1400&fit=max'}
+            src={urlFor(image.asset._ref).width(750).url()}
             alt="images of me"
           />
         {/each}
