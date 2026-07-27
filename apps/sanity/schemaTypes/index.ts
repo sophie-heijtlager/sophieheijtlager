@@ -11,8 +11,10 @@ import { marqueeSection } from './sections/marqueeSection'
 import { textRevealSection } from './sections/textRevealSection'
 import { textPopupSection } from './sections/textPopupSection'
 import { myCareerSection } from './sections/myCareerSection'
+import { certificatesSection } from './sections/certificatesSection'
 import { heroSection } from './sections/heroSection'
 import { socials } from './objects/socials'
+import { certificateCards } from './documents/certificateCards'
 
 export const schemaTypes = [
   // documents
@@ -26,11 +28,13 @@ export const schemaTypes = [
   textRevealSection,
   textPopupSection,
   heroSection,
+  certificatesSection,
   footer,
   header,
   
   // objects
   label,
   marqueeItem,
-  socials
+  socials,
+  certificateCards
 ]

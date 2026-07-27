@@ -6,6 +6,7 @@
 	import TextPopupSection from "../sections/TextPopupSection.svelte";
 	import MyCareerSection from "../sections/MyCareerSection.svelte";
 	import HeroSection from "../sections/HeroSection.svelte";
+	import CertificatesSection from "../sections/CertificatesSection.svelte";
 
   const { sections = [] } = $props();
 
@@ -16,6 +17,7 @@
 		marqueeSection: MarqueeSection,
 		textReveal: TextRevealSection,
 		textPopup: TextPopupSection,
+		certificates: CertificatesSection
   }
 </script>
 
