@@ -1,92 +1,93 @@
 <script lang="ts">
-  import { urlFor } from "$lib/cms/image";
 	const { section } = $props();
-
-	console.log(section.certificate_items);
 </script>
 
 <section class="container">
 	<div class="section-certificates section-xl" style="padding-block-end: 0;">
-    
-    <h4>{section.title}</h4>
-    
+		<div class="section-certificates__heading">
+			<div class="h3">{section.title}</div>
+			<div class="paragraph">{section.paragraph}</div>
+		</div>
+
 		<div class="section-certificates__cards">
 			{#each section.certificate_items as certificate, index (index)}
-        <div class="card">
-          <div class="card-wrapper">
-          <img loading="lazy" src={urlFor(certificate.image.asset._ref).width(800).url()} alt="Image for: {certificate.institution}" class="card-image" />
-            <div class="card-date">{certificate.date}</div>
-					  <div class="card-certificate h6">{certificate.certificate}</div>
-          </div>
-					<div class="card-institution">{certificate.institution}</div>
+				<div class="card">
+          <div class="card-index">{index < 10 ? '0' + (index + 1) : (index + 1)}</div>
+					<div class="card-wrapper">
+						<div class="card-certificate">{certificate.certificate}</div>
+            <div class="card-institution">{certificate.institution}</div>
+					</div>
 				</div>
 			{/each}
-
-      <div class="card more-soon">
-        <div class="h6">more coming soon!</div>
-      </div>
 		</div>
 	</div>
 </section>
 
 <style scoped>
 	.section-certificates {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-md);
+
+		.section-certificates__heading {
+			display: flex;
+			justify-content: space-between;
+			gap: var(--space-md);
+			flex-wrap: wrap;
+
+      & .h3 {
+        max-width: 768px;
+      }
+
+      & .paragraph {
+        max-width: 500px;
+      }
+		}
 
 		& .section-certificates__cards {
 			display: flex;
-			flex-direction: column;
-			gap: var(--space-xs);
-      
-      flex-wrap: wrap;
-      
+      overflow-x: auto;
+			gap: var(--space-sm);
+
 			& .card {
-        display: flex;
+				display: flex;
 				flex-direction: column;
-				gap: var(--space-sm);
+				gap: var(--space-2xl);
 				flex: 1;
-        
-        justify-content: space-between;
-        
-				background-color: var(--primary-50);
-        color: var(--primary-900);
+				justify-content: space-between;
+
+				background-color: var(--beige-500);
+        border: 0.5px solid var(--dark-grey-50);
+        box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+				color: var(--primary-900);
 				padding: var(--space-sm);
-				border-radius: var(--space-xs);
-        
-        min-width: 300px;
+				border-radius: var(--space-2xs);
 
-        &.more-soon {
-          text-align: center;
+				min-width: 300px;
+
+        & .card-index {
+          font-size: var(--text-body-sm);
         }
-        
-        & .card-wrapper {
-          display: flex;
-          flex-direction: column;
-          gap: var(--space-xs);
 
-          & .card-image {
-            height: 140px;
-            border-radius: var(--space-2xs);
-            object-fit: cover;
-          }
+				& .card-wrapper {
+					display: flex;
+					flex-direction: column;
+					gap: var(--space-2xs);
 
-          & .card-date {
-            font-size: var(--text-body-sm);
-            opacity: 0.5;
-          }
+					& .card-certificate {
+            font-weight: 500;
+					}
 
-          & .card-certificate {
-            color: inherit;
-          }
-        }
-        
-
+					& .card-institution {
+            font-weight: 300;
+					}
+				}
 			}
-      
+
 			@media (min-width: 768px) {
-				flex-direction: row;
+        overflow-x: unset;
+				display: flex;
+        flex-wrap: wrap;
 			}
 		}
 	}

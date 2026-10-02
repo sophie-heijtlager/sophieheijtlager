@@ -13,6 +13,11 @@ export const certificatesSection = {
       type: 'string'
     }),
     defineField({
+      name: 'paragraph',
+      title: 'Paragraph',
+      type: 'string'
+    }),
+    defineField({
       name: 'certificate_items',
       title: 'Certificates',
       type: 'array',
