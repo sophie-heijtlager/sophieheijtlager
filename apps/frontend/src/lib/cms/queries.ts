@@ -47,6 +47,7 @@ export const headerQuery = groq`*[_type == "header"][0]{
       _type == 'certificates' => {
         _id,
         title,
+        paragraph,
         certificate_items[] -> {
           image {
             asset
